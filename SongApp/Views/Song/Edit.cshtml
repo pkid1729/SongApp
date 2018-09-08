@@ -1,0 +1,39 @@
+﻿@*@{
+        ViewData["Title"] = "Edit";
+    }
+
+    <h2>Edit</h2>*@
+@model SongApp.Models.Song
+
+<br /><br />
+<form asp-action="Edit" method="Post">
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="SongName" class="col-lg-2 col-sm-3 control-label"></label>
+                <div class="col-lg-3">
+                    <input asp-for="SongName" class="form-control" />
+                    <span asp-validation-for="SongName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SongType" class="col-lg-2 col-sm-3 control-label"></label>
+                <div class="col-lg-3">
+                    <input asp-for="SongType" class="form-control" />
+                    <span asp-validation-for="SongType" class="text-danger"></span>
+
+                </div>
+            </div>
+            <label asp-for="SingerName" class="col-lg-2 col-sm-3 control-label"></label>
+            <div class="col-lg-3">
+                <input asp-for="SingerName" class="form-control" />
+                <span asp-validation-for="SingerName" class="text-danger"></span>
+
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Update" class="col-lg-2 col-md-offset-2 btn btn-success" /> <br />
+
+</form>
+

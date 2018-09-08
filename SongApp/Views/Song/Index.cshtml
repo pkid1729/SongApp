@@ -1,0 +1,46 @@
+﻿@*@{
+        ViewData["Title"] = "Index";
+    }
+
+    <h2>Index</h2>*@
+@model IEnumerable<SongApp.Models.Song>
+
+
+<div class="panel-body">
+    <div class="btn-group">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="glyphicon glyphicon-plus"></i>  Add Song
+        </a>
+    </div>
+
+    <br /> <br />
+
+
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>SongName</th>
+                <th>SongType</th>
+                <th>SingerName</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SongName)</td>
+                <td>@Html.DisplayFor(modelItem => item.SongType)</td>
+                <td>@Html.DisplayFor(modelItem => item.SingerName)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SongID" class="btn btn-info">
+                        <i class="glyphicon glyphicon-pencil"></i>  Edit
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.SongID" class="btn btn-danger" onclick="return confirm('Are you sure you wish to delete ?');">
+                        <i class="glyphicon glyphicon-trash"></i>  Delete
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
